@@ -2,6 +2,7 @@ import { confirmPasswordReset, sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
 import { GiCancel } from "react-icons/gi";
 import { Auth } from "../Firebase/config";
+import { toast } from "react-toastify";
 
 function ResetPassword({setResetPassword , resetPassword}) {
     const [email ,setEmail] = useState('')
@@ -9,10 +10,11 @@ function ResetPassword({setResetPassword , resetPassword}) {
     const reset = async()=>{
       try{
         const res = await sendPasswordResetEmail(Auth,email)
-        console.log(res)
+        toast(res)
+        setResetPassword(false)
       }
       catch(error){
-       console.log(error)
+       toast(error.message)
       }
     }
     return ( 
