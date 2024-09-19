@@ -92,7 +92,6 @@ function Landing() {
                         <select aria-label="My Account">
                             <option value="account" onClick={()=>navigate('/account')}>My Account</option>
                             <option value="cart" onClick={() => navigate('/booking')}>Cart</option>
-                            <option value="checkout" onClick={() => navigate('/checkout')}>Checkout</option>
                         </select>
                         <li onClick={() => navigate('/rooms')}><a>Rooms</a></li>
                         <li><a>Contact Us</a></li>
