@@ -206,9 +206,9 @@ function Landing() {
                 </div>
                 <div>
                     <h4>Other</h4>
-                    <p>Terms and Condition</p>
+                    <p onClick={()=>navigate('/terms')}>Terms and Condition</p>
                     <p>Developer</p>
-                    <p>Use Policy</p>
+                    <p onClick={()=>navigate('/policy')}>Use Policy</p>
                 </div>
                 <div>
                     <h4>Support</h4>
