@@ -15,6 +15,8 @@ import Cart from './pages/Cart'
 import Checkout from './Components/Checkout'
 import { useState } from 'react'
 import About_room from './pages/About_room'
+import TermsAndConditions from './pages/Terms'
+import Policy from './pages/Policy'
 function App() {
   const [path , setPath] = useState(null)
   return (
@@ -41,6 +43,8 @@ function App() {
         <Route path='/adminlogin' element={<AdminLogin/>}/>
         <Route path='/rooms' element={<ViewAll setPath={setPath}/>}/>
         <Route path={`/rooms/${path}`} element={<About_room/>}/>
+        <Route path='/terms' element={<TermsAndConditions/>}/>
+        <Route path='/policy' element={<Policy/>}/>
 
         <Route element={<Protected/>}>    
         <Route path='/account' element={<Account/>}/>

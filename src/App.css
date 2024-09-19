@@ -1047,3 +1047,11 @@ input{
   margin-left: 2rem;
   margin-top: 2rem;
  }
+ .card-container .booking{
+  flex-direction: column;
+ }
+ .card-container > .back{
+  position: absolute !important;
+  bottom: 4rem !important;
+  left: 50% !important;
+ }

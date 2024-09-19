@@ -92,7 +92,6 @@ function Landing() {
                         <select aria-label="My Account">
                             <option value="account" onClick={()=>navigate('/account')}>My Account</option>
                             <option value="cart" onClick={() => navigate('/booking')}>Cart</option>
-                            <option value="checkout" onClick={() => navigate('/checkout')}>Checkout</option>
                         </select>
                         <li onClick={() => navigate('/rooms')}><a>Rooms</a></li>
                         <li><a>Contact Us</a></li>
@@ -206,9 +205,9 @@ function Landing() {
                 </div>
                 <div>
                     <h4>Other</h4>
-                    <p>Terms and Condition</p>
+                    <p onClick={()=>navigate('/terms')}>Terms and Condition</p>
                     <p>Developer</p>
-                    <p>Use Policy</p>
+                    <p onClick={()=>navigate('/policy')}>Use Policy</p>
                 </div>
                 <div>
                     <h4>Support</h4>
