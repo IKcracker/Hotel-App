@@ -5,13 +5,15 @@ import ReactStars from "react-rating-stars-component";
 import { MdCancel } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux'
 import { updateRoom } from "../Redux/roomSlice";
-import { getTemp } from "../Redux/tempSlide";
+import { getTemp, setView } from "../Redux/tempSlide";
+import { getBooking } from "../Redux/bookingSlide";
 
 function ViewAll({setPath}) {
     const [rooms, setRooms] = useState(null);
     const [rate, setRate] = useState(null); 
     const [reviewText, setReviewText] = useState(""); 
     const [currentRoom, setCurrentRoom] = useState(null); 
+    const [checkBooked , setCheckBooked] = useState(null)
     const filterData = useSelector(state => state)
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -21,6 +23,7 @@ function ViewAll({setPath}) {
             const luxury = await getRooms('Luxury');
             const general = await getRooms('General');
             console.log(filterData)
+            dispatch(getBooking())
             setRooms((old) => [...(old || []), ...deluxe, ...luxury, ...general]);
         })();
     }, []);
@@ -90,7 +93,7 @@ function ViewAll({setPath}) {
                                      </div>
                                      <div className="btn-box">
                                      <button className="book-now" onClick={() => handleBook(room)}>Book Now</button>
-                                     <Link to={`/rooms/${room.id}`} onClick={()=> setPath(room.id)}>Read More</Link>
+                                     <p onClick={()=>{ dispatch(setView(room)) ;setPath(room); navigate(`/rooms/${room.id}`)}}>Read More</p>
                                      </div>
                                     
                                

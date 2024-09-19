@@ -1055,3 +1055,96 @@ input{
   bottom: 4rem !important;
   left: 50% !important;
  }
+ .top-container{
+  background-color: var(--sc-color);
+  height: 20vh;
+ }
+ .top-container>div:last-child{
+  margin: 2rem  20%;
+ }
+ .top-container>div>h1{
+  font-size: 3.8rem;
+ }
+ .top-container>div p{
+  font-size: 2.4rem;
+  font-weight: 300;
+ }
+ .bottom-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 80vh;
+  overflow: hidden;
+ }
+ .Amenities{
+  background-color: #ececec;
+ }
+  .about-container{
+  height: 100vh;
+  overflow: hidden;
+ } 
+ .bottom-container>div{
+  height: inherit;
+  padding: 4rem;
+  height: 50vh;
+ }
+ .Amenities>div{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5,1fr);
+  
+ }
+ .Amenities>div>div>p{
+  padding: 1.8rem;
+ }
+ .Amenities>div>div:first-child>p{
+  font-weight: 600;
+ }
+ .last-container{
+  height: 30vh !important;
+ }
+ .about >div{
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-top: 4rem;
+ }
+ .last-container{
+  display: flex;
+  padding: 0 !important;
+  grid-column: 1/3;
+  gap:1rem ;
+ }
+ .last-container>div{
+  height: 30vh;
+  width: 300px;
+ }
+ .last-container>div:first-child{
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--sc-color);
+ }
+ .last-container>div>img{
+   object-fit: cover;
+   width: 100%;
+   height: 100%;
+ }
+ .options{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+ }
+ .options .back{
+  top: 1rem;
+  left: -18rem;
+ }
+ .options button{
+  padding: .8rem 1.5rem;
+  position: relative;
+  right: -18rem;
+  top: 1rem;
+  background-color: #fff;
+ }

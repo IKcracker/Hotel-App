@@ -42,7 +42,7 @@ function App() {
         <Route path ='/login' element={<Login/>}/>
         <Route path='/adminlogin' element={<AdminLogin/>}/>
         <Route path='/rooms' element={<ViewAll setPath={setPath}/>}/>
-        <Route path={`/rooms/${path}`} element={<About_room/>}/>
+        <Route path={`/rooms/${path?.id}`} element={<About_room room={path} />}/>
         <Route path='/terms' element={<TermsAndConditions/>}/>
         <Route path='/policy' element={<Policy/>}/>
 

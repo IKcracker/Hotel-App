@@ -2,6 +2,8 @@ import { useState } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { toast } from "react-toastify";
 import { current } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { createBookings } from "../Redux/bookingSlide";
 
 function Message({ content }) {
     return <p>{content}</p>;
@@ -10,7 +12,7 @@ function Message({ content }) {
 function PaypalCheckoutButton({ product }) {
     const [paidFor, setPaidFor] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
-
+    const dispatch = useDispatch()
     const style = {
         shape: "pill",
         layout: "vertical",
@@ -35,6 +37,8 @@ function PaypalCheckoutButton({ product }) {
         const res = await actions.order.capture();
         toast('Transaction completed by ' + res.payer.name.given_name);
         setPaidFor(true);
+        console.log(product)
+        dispatch(createBookings(product))
     };
 
     const onCancel = (data) => {

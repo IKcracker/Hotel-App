@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { addBookings, getBooking } from "../Database/Bookings";
+import { addBookings, getBookings } from "../Database/Bookings";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../Firebase/config";
 import { toast } from "react-toastify";
@@ -22,12 +22,12 @@ export const createBookings = createAsyncThunk(
        rejectWith(error)
     }
 })
-export const getBookings = createAsyncThunk(
+export const getBooking = createAsyncThunk(
     "Bookings/getBookings",
     async (id ,{rejectWith}) => {
     
     try{
-        let res = await getBooking('/booking' , id)
+        let res = await getBookings('/booking' , id)
         console.log(res)
     }
     catch(error)
