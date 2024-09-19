@@ -18,7 +18,7 @@ function Landing() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    // Check user auth status
+
     useEffect(() => {
         const currentUser = auth?.currentUser;
         if (currentUser?.emailVerified) {
@@ -29,7 +29,7 @@ function Landing() {
         }
     }, [auth]);
 
-    // Update background image periodically
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setCount(prevCount => (prevCount < 5 ? prevCount + 1 : 1));
@@ -90,7 +90,7 @@ function Landing() {
                     <ul>
                         <li><a>About</a></li>
                         <select aria-label="My Account">
-                            <option value="account" onClick={()=>navigate('/Acount')}>My Account</option>
+                            <option value="account" onClick={()=>navigate('/account')}>My Account</option>
                             <option value="cart" onClick={() => navigate('/booking')}>Cart</option>
                             <option value="checkout" onClick={() => navigate('/checkout')}>Checkout</option>
                         </select>

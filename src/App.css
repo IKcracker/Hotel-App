@@ -1031,3 +1031,19 @@ input{
   align-items: center;
   justify-content: center;
  }
+ .Account-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+ }
+ .Account-box span{
+  text-decoration: underline;
+  color: var(--pr-color);
+ }
+ .Account-box .back{
+  position: static;
+  margin-left: 2rem;
+  margin-top: 2rem;
+ }

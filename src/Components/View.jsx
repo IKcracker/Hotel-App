@@ -88,7 +88,7 @@ function View({setRoom ,Room ,setTarget}) {
     
         <div className="general-display">
             {rooms?.general && <p>General</p>}
-            
+            <div>
                 {
                     rooms?.general ? rooms.general.map((room, index) =>
                     {
@@ -106,7 +106,7 @@ function View({setRoom ,Room ,setTarget}) {
                         </div>
                     }) : <p>Loading...</p>
                 }
-           
+            </div>
         </div>
     </div>
     
