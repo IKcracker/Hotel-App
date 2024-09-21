@@ -7,7 +7,7 @@ import { MdOutlineArrowForward } from "react-icons/md";
 import { updateRoom } from "../Redux/roomSlice";
 import { toast } from "react-toastify";
 import { FaArrowLeftLong } from "react-icons/fa6";
- // Assuming this is your custom CSS file
+
 
 function Cart() {
   let data = useSelector((state) => state.temp[0]);
@@ -41,7 +41,7 @@ function Cart() {
     }
     
     const updated = { ...room,checkIn,checkOut};
-    console.log(updated)
+ 
     dispatch(updateRoom(updated));
     setConfirm(true);
     setRoom(old => ({...old , updated}))

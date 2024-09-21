@@ -7,7 +7,7 @@ function View({ setRoom, Room, setTarget }) {
     const [deluxePage, setDeluxePage] = useState(1);
     const [luxuryPage, setLuxuryPage] = useState(1);
     const [generalPage, setGeneralPage] = useState(1);
-    const [itemsPerPage] = useState(3); // Adjust items per page as needed
+    const [itemsPerPage] = useState(3); 
 
     useEffect(() => {
         const fetchRooms = async () => {
@@ -66,7 +66,7 @@ function View({ setRoom, Room, setTarget }) {
                         )}
                     </div>
 
-                    {/* Pagination Controls for Each Category */}
+                    
                     <div className="pagination">
                         <button 
                             onClick={() => type === 'deluxe' ? setDeluxePage(prev => Math.max(prev - 1, 1)) : type === 'luxury' ? setLuxuryPage(prev => Math.max(prev - 1, 1)) : setGeneralPage(prev => Math.max(prev - 1, 1))}

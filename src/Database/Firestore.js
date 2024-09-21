@@ -4,10 +4,10 @@ import { addDoc , collection, getDocs } from "firebase/firestore";
 export const storingUser = async(user)=>{
     try{
         const docRef= await  addDoc(collection(db ,'users'),user);
-        console.log(docRef)
+        return docRef
     }
     catch(error){
-        console.log(error) 
+        return error.message
     }
    
    

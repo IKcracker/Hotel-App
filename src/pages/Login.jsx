@@ -14,7 +14,7 @@ function Login() {
     const [verified ,setVerified] = useState(false)
     useEffect(()=>{
             setVerified(Auth?.currentUser?.emailVerified || true)
-            console.log(Auth?.currentUser)
+          
     },[],[Auth])
 
     const navigate = useNavigate();

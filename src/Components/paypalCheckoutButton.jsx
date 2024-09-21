@@ -31,7 +31,7 @@ function PaypalCheckoutButton({ product }) {
         };
 
         fetchRoom();
-    }, [product]); // Add product to the dependency array
+    }, [product]); 
 
     const style = {
         shape: "pill",

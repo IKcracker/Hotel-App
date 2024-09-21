@@ -12,7 +12,7 @@ const initialState = {
 export const createRooms = createAsyncThunk(
     "rooms/createRooms",
     async (room,{rejectWith}) => {
-    console.log(room)
+   
     try{
         let res = await addRooms(room)
         return res
@@ -28,7 +28,7 @@ export const getRooms = createAsyncThunk(
     
     try{
         let res = await getRoom(category , id)
-        console.log(res)
+        return res
     }
     catch(error)
     {
@@ -39,13 +39,13 @@ export const updateRoom = createAsyncThunk(
     'room/update',
     async( room)=>{
         const ref = doc(db , `/${room.category}`, room.id)
-        console.log(ref)
+       
         try{
             const res =await updateDoc(ref,room)
-            console.log(res)
+            return res
         }
         catch(error){
-           console.log(error.message)
+           return error.message
         }
         
     }

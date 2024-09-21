@@ -11,7 +11,6 @@ export const logIn = async (inputs) => {
     
   } catch (error) {
     const errorCode = error.code;
-     console.log(error)
     switch (errorCode) {
       case "auth/invalid-email":
         toast.error("This email address is invalid.");

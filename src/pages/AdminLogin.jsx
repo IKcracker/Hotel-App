@@ -14,7 +14,7 @@ function AdminLogin() {
         try{
             setLoading(true)
             const res = await getCode();
-            console.log(res.code , code)
+    
             if( res.code == code)
             {
                  

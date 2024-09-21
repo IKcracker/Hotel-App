@@ -14,7 +14,7 @@ function Register() {
     const navigate = useNavigate()
     const dispatch = useDispatch();
     const res = useSelector(state => state.auth)
-    console.log(res)
+
     let handleSubmit=async (e)=>{
          e.preventDefault()
          await dispatch( registerUser(inputs))
@@ -36,7 +36,7 @@ function Register() {
     const logout =async()=>{
            const auth = getAuth()
           const use = await signOut(auth)
-          console.log(use)
+         
     }
     return ( <>
     <div className="form">

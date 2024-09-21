@@ -46,7 +46,7 @@ function AddRoom({ target,rooms }) {
         }
       } catch (error) {
         setLoading(false);
-        console.log(error.message);
+       
       }
     });
   };

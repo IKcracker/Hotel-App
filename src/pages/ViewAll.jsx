@@ -13,17 +13,17 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 
 function ViewAll({ setPath }) {
     const [rooms, setRooms] = useState([]); 
-    const [filteredRooms, setFilteredRooms] = useState([]); // Track filtered rooms
+    const [filteredRooms, setFilteredRooms] = useState([]);
     const [rate, setRate] = useState(null);
     const [reviewText, setReviewText] = useState("");
     const [currentRoom, setCurrentRoom] = useState(null);
-    const [currentPage, setCurrentPage] = useState({}); // Pagination state for each category
-    const [roomsPerPage] = useState(3); // Show 6 rooms per page
+    const [currentPage, setCurrentPage] = useState({});
+    const [roomsPerPage] = useState(3); 
     const filterData = useSelector(state => state);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    // Fetch rooms on component mount
+
     useEffect(() => {
         (async () => {
             const deluxe = await getRooms('Deluxe');
@@ -31,8 +31,8 @@ function ViewAll({ setPath }) {
             const general = await getRooms('General');
             const allRooms = [...deluxe, ...luxury, ...general];
             setRooms(allRooms);
-            setFilteredRooms(allRooms); // Initially show all rooms
-            setCurrentPage({ 'Deluxe': 1, 'Luxury': 1, 'General': 1 }); // Set initial page to 1 for each category
+            setFilteredRooms(allRooms);
+            setCurrentPage({ 'Deluxe': 1, 'Luxury': 1, 'General': 1 });
         })();
     }, [filterData]);
 
@@ -44,7 +44,7 @@ function ViewAll({ setPath }) {
         e.preventDefault();
         room.rating.push({ reviewText, rate });
         const res = dispatch(updateRoom(room));
-        console.log(res);
+      
         setRate(null);
         setReviewText("");
         setCurrentRoom(null);
@@ -63,16 +63,15 @@ function ViewAll({ setPath }) {
         if (size) filtered = filtered.filter(room => room.size === size);
 
         setFilteredRooms(filtered);
-        setCurrentPage({ ...currentPage, [category]: 1 }); // Reset page for filtered category
+        setCurrentPage({ ...currentPage, [category]: 1 }); 
     };
 
-    // Group rooms by category
     const groupedRooms = filteredRooms.reduce((acc, room) => {
         acc[room.category] = acc[room.category] ? [...acc[room.category], room] : [room];
         return acc;
     }, {});
 
-    // Handle pagination for each category
+
     const handlePageChange = (category, pageNumber) => {
         setCurrentPage(prevState => ({
             ...prevState,
@@ -135,7 +134,7 @@ function ViewAll({ setPath }) {
                                                 </div>
 
                                                 <div className={"btn-box"}>
-                                                {console.log(room)}
+                                              
                                                 {room.status != "available" ?<div><p>not available till</p><p> {room.checkOut}</p></div>:
                                                 <button className="book-now" onClick={() => handleBook(room)}>Book Now</button>
                                                 }

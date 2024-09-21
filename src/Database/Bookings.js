@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 export const addBookings = async(data)=>{
 
     const ref = collection(db ,'/booking')
-    console.log(ref)
+ 
     try{
         const res = await addDoc(ref,{...data})
        return res

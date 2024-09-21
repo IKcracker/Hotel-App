@@ -7,14 +7,14 @@ import { toast } from "react-toastify";
 export const addRooms = async(data)=>{
 
     const ref = collection(db ,data.category)
-    console.log(ref)
+
     try{
         const res = await addDoc(ref,{...data , rating:[]})
-        console.log(res)
+        return res
     }
     catch(error)
     {
-        console.log(error.message)
+       return error.message
     }
     
     

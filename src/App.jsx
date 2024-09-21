@@ -1,7 +1,6 @@
 import './App.css'
 import Protected from './Components/Protected'
 import Admin from './pages/Admin'
-import Booking from './pages/Booking'
 import Landing from './pages/Landing'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -12,13 +11,11 @@ import { ToastContainer } from 'react-toastify'
 import ViewAll from './pages/ViewAll'
 import Account from './pages/Acount'
 import Cart from './pages/Cart'
-import Checkout from './Components/Checkout'
 import { useEffect, useState } from 'react'
 import About_room from './pages/About_room'
 import TermsAndConditions from './pages/Terms'
 import Policy from './pages/Policy'
 import { useDispatch, useSelector } from 'react-redux'
-import { getTemp } from './Redux/tempSlide'
 function App() {
   const [path , setPath] = useState(null)
   const dispatch = useDispatch()

@@ -11,7 +11,7 @@ const TermsAndConditions = () => {
     e.preventDefault();
     if (accepted) {
       alert("You have accepted the Terms and Conditions.");
-      // Handle further actions, such as form submission
+
     } else {
       alert("Please accept the Terms and Conditions before proceeding.");
     }
