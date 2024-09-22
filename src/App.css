@@ -942,11 +942,7 @@ input{
   flex-basis: 360px !important;
   height: fit-content;
  }
- .cart-container{
-  display: flex;
- }
- .cart-container>div{
-  flex-basis: 50%;
+ .card-container>div{
   padding-top: 2rem;
   padding-left: .6rem;
  }
@@ -1055,3 +1051,300 @@ input{
   bottom: 4rem !important;
   left: 50% !important;
  }
+ .all-rooms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.rooms-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 80%;
+  max-width: 1200px;
+}
+
+.room {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.room img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.room-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-now {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.book-now:hover {
+  background-color: #45a049;
+}
+.card-container{
+  display: flex;
+  flex-direction: row !important;
+}
+.pagination {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+
+}
+.display-deluxe , .display-luxury , .display-general{
+  position: relative;
+}
+.rooms-container .room{
+  width: 340px !important;
+}
+.admin-container .pagination{
+  position: absolute;
+  top: -12rem;
+  display: flex;
+  align-items: center;
+  right: 4rem;
+}
+.options-nav{
+  display: flex;
+  align-items: center;
+  gap:4rem ;
+}
+.options-nav .back{
+  position: unset;
+}
+.pagination button {
+  margin: 0 5px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background-color: #4CAF50;
+  color: white;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card-container .room {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  background: #fff;
+}
+
+.card-container .room img {
+  object-fit: cover;
+  height: 260px;
+}
+.rating-box div{
+  display: flex;
+}
+
+.card-container h2 {
+  margin: 0 0 10px;
+}
+
+.card-container h4 {
+  color: #777;
+}
+
+.card-container .visitors-box {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.card-container .price {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.card-container .rating-box {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.card-container .btn-box {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card-container input[type="date"],
+.card-container input[type="number"],
+.card-container select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.card-container .input-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-container .book-now {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ea2430;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card-container .book-now:hover {
+  background-color: #d82e3a;
+}
+
+.card-container h1 {
+  color: #ea2430;
+  text-align: center;
+  margin-top: 50px;
+}
+.about-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+}
+
+.options .back {
+  position: unset;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2em;
+  margin-right: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ea2430;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.bottom-container {
+  margin-top: 20px;
+}
+
+.about, .amenities, .last-container {
+  margin-bottom: 20px;
+}
+
+.about h1, .amenities h1, .last-container h1 {
+  font-size: 1.8em;
+  color: #ea2430;
+  margin-bottom: 10px;
+}
+
+.about .amenities div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about .amenities p {
+  margin: 5px 0;
+}
+
+.last-container img {
+  width: 100%;
+  height: auto;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+.rooms-container{
+  display: flex;
+  flex-direction: column;
+}
+.rooms-container .category-section .room-grid{
+  display: flex;
+}
+.rooms-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.category-section {
+  margin-bottom: 2rem;
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.card-container form{
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
+  width: 300px;
+  margin: 0;
+  gap: 0;
+
+}
+.btn-box div{
+  display: flex;
+  flex-direction: column;
+}
+.card-container .back{
+  position: absolute;
+  top: 0 !important;
+  bottom: unset !important;
+  right: 0 !important;
+  left: 0 !important;
+}

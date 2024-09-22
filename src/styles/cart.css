@@ -1,0 +1,66 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .room {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .room img {
+    border-radius: 8px;
+  }
+  
+  .visitors-box {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .rating-box {
+    display: flex;
+    align-items: center;
+  }
+  
+  .btn-box {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .back {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .booking {
+    margin-top: 20px;
+  }
+  
+  .input-box {
+    margin-bottom: 20px;
+  }
+  
+  .book-now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ea2430;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

@@ -18,7 +18,7 @@ function Landing() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-
+    // Check if the user is logged in and active
     useEffect(() => {
         const currentUser = auth?.currentUser;
         if (currentUser?.emailVerified) {
@@ -29,7 +29,7 @@ function Landing() {
         }
     }, [auth]);
 
-
+    // Background image slideshow
     useEffect(() => {
         const timer = setTimeout(() => {
             setCount(prevCount => (prevCount < 5 ? prevCount + 1 : 1));
@@ -38,6 +38,7 @@ function Landing() {
         return () => clearTimeout(timer);
     }, [count]);
 
+    // Logout function
     const handleLogout = async () => {
         await signOut(auth);
         setIsLogged(false);
@@ -45,11 +46,13 @@ function Landing() {
         navigate('/login');
     };
 
+    // Handle form change
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFilter(prevFilter => ({ ...prevFilter, [name]: value }));
     };
 
+    // Handle form submission for booking
     const handleFilter = () => {
         const { checkIn, checkOut, adult, children } = filter;
 
@@ -64,6 +67,7 @@ function Landing() {
 
     return (
         <div className="landing">
+            {/* Navigation Bar */}
             <nav className="nav">
                 <div className="top-nav">
                     <div className="location">
@@ -88,13 +92,13 @@ function Landing() {
                         )}
                     </div>
                     <ul>
-                        <li><a>About</a></li>
+                        <li><a href="#about">About</a></li>
                         <select aria-label="My Account">
-                            <option value="account" onClick={()=>navigate('/account')}>My Account</option>
+                            <option value="account" onClick={() => navigate('/account')}>My Account</option>
                             <option value="cart" onClick={() => navigate('/booking')}>Cart</option>
                         </select>
                         <li onClick={() => navigate('/rooms')}><a>Rooms</a></li>
-                        <li><a>Contact Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                         {(isLogged || isActive) ? (
                             <button className="btn" onClick={handleLogout}>
                                 Log out
@@ -107,6 +111,8 @@ function Landing() {
                     </ul>
                 </div>
             </nav>
+
+            {/* Hero Section */}
             <div className="hero">
                 <div className="imgs">
                     <img src={bg} alt="Hotel background" />
@@ -121,6 +127,8 @@ function Landing() {
                     <h1 className="title">MOROPANE LUXURY HOTEL</h1>
                 </div>
             </div>
+
+            {/* Booking Form */}
             <form className="booking" onChange={handleChange}>
                 <div className="input-box">
                     <label htmlFor="checkIn">Check In</label>
@@ -151,6 +159,8 @@ function Landing() {
                     <MdOutlineArrowForward className="book-icon" />
                 </div>
             </form>
+
+            {/* Rooms Display */}
             <div className="rooms">
                 <p className="sub-title">EXTRAORDINARY HOTEL</p>
                 <h1 className="title">Choose Your Type of Room</h1>
@@ -172,6 +182,8 @@ function Landing() {
                     <h1><span>S</span>ervices</h1>
                 </div>
             </div>
+
+         
             <div className="services">
                 <div className="service-items">
                     <div>
@@ -205,9 +217,9 @@ function Landing() {
                 </div>
                 <div>
                     <h4>Other</h4>
-                    <p onClick={()=>navigate('/terms')}>Terms and Condition</p>
+                    <p onClick={() => navigate('/terms')}>Terms and Condition</p>
                     <p>Developer</p>
-                    <p onClick={()=>navigate('/policy')}>Use Policy</p>
+                    <p onClick={() => navigate('/policy')}>Use Policy</p>
                 </div>
                 <div>
                     <h4>Support</h4>

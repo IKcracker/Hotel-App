@@ -53,7 +53,7 @@ export const update = async (id , category ,data)=>{
    try {
        await updateDoc(doc(db ,`${category}` , id),data)
    } catch (error) {
-    toast(error.message)
+      toast(error.message)
    }
 }
 export const getRoom = async (category , id)=>{

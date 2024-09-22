@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import { toast } from "react-toastify";
-import { current } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
+import { updateRoom } from "../Redux/roomSlice";
+import { getRoom } from "../Database/rooms";
 
 function Message({ content }) {
     return <p>{content}</p>;
@@ -10,6 +12,26 @@ function Message({ content }) {
 function PaypalCheckoutButton({ product }) {
     const [paidFor, setPaidFor] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    const [room, setRoom] = useState({});
+    const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
+   
+    useEffect(() => {
+        const fetchRoom = async () => {
+            try {
+                const res = await getRoom(product.category, product.id);
+                setRoom(res);
+            } catch (error) {
+                console.error("Error fetching room:", error);
+                setErrorMessage("Failed to fetch room details. Please try again.");
+                toast.error("Failed to fetch room details.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchRoom();
+    }, [product]); // Add product to the dependency array
 
     const style = {
         shape: "pill",
@@ -17,27 +39,27 @@ function PaypalCheckoutButton({ product }) {
         color: "gold",
         label: "paypal",
     };
-
+ 
     const createOrder = (data, actions) => {
         return actions.order.create({
-            purchase_units: [
-                {
-                    amount: {
-                        currency_code:'USD',
-                        value: 1234,
-                    },
+            purchase_units: [{
+                amount: {
+                    currency_code: 'USD',
+                    value: product.price,
                 },
-            ],
+            }],
         });
     };
 
     const onApprove = async (data, actions) => {
         const res = await actions.order.capture();
-        toast('Transaction completed by ' + res.payer.name.given_name);
+        toast(`Transaction completed by ${res.payer.name.given_name}`); 
+        const updated = { ...room, status: 'booked' };
+        dispatch(updateRoom(updated));
         setPaidFor(true);
     };
 
-    const onCancel = (data) => {
+    const onCancel = () => {
         setErrorMessage("Payment cancelled. Please try again.");
         toast("Payment was cancelled.");
     };
@@ -48,19 +70,19 @@ function PaypalCheckoutButton({ product }) {
         toast.error("An error occurred during the transaction.");
     };
 
-
     return (
         <div>
-            {paidFor ? (
+            {loading ? (
+                <Message content="Loading..." />
+            ) : paidFor ? (
                 <Message content="Thank you for your purchase!" />
             ) : (
                 <PayPalButtons
                     style={style}
                     createOrder={createOrder}
                     onApprove={onApprove}
-                    onCancel={onCancel} 
+                    onCancel={onCancel}
                     onError={onError}   
-              
                 />
             )}
             {errorMessage && <Message content={errorMessage} />}

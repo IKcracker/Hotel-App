@@ -59,7 +59,7 @@ function AddRoom({ target,rooms }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createRooms({...inputs , status:"available"}));
-    setInputs(old => ({...old , img:[] , adult: 1 , children:1 , price:1000,category:'Deluxe',size:'Dmall'}))
+    setInputs(old => ({...old , img:[] , adult: 1 , children:1 , price:1000,category:'Deluxe',size:'Small'}))
   };
 
   return (
@@ -89,7 +89,7 @@ function AddRoom({ target,rooms }) {
         <select name="category" value={inputs.category}>
           <option value="Deluxe">Deluxe</option>
           <option value="Luxury">Luxury</option>
-          <option value="Leneral">General</option>
+          <option value="General">General</option>
         </select>
         <select name="size" value={inputs.size}>
           <option value="single">Single</option>
