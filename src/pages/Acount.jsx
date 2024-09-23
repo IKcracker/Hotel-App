@@ -13,7 +13,7 @@ function Account({setPath}) {
    const dispatch = useDispatch()
    const navigate = useNavigate()
    useEffect(()=>{
-      (async()=>{Auth.currentUser.uid
+      (async()=>{
       const res =await  getAll()
       res.forEach(data => setBookings((old) => ([...old, data.data()])));
 
@@ -29,10 +29,10 @@ function Account({setPath}) {
             {update && <ResetPassword setResetPassword={setUpdate} resetPassword={update}/>}
             <div>
             <h4>Bookins</h4>
-            {bookings.map((book , index) =>{
-               
-               return <p onClick={()=> {setPath(book) ; navigate(`/rooms/${book?.id}`)}}>Room {Number(index) + 1}</p>
+            {bookings.map((book , index) =>{ 
+               return book.uid ==Auth.currentUser.uid && <p onClick={()=> {setPath(book) ; navigate(`/rooms/${book?.id}`)}}> click to view - Room {Number(index) + 1}</p>
                })}
+               
             <div>
             </div>  
             </div>

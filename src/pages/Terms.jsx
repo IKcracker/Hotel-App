@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const TermsAndConditions = () => {
   const [accepted, setAccepted] = useState(false);
-
+ const navigate =useNavigate()
   const handleCheckboxChange = (e) => {
     setAccepted(e.target.checked);
   };
@@ -15,10 +16,11 @@ const TermsAndConditions = () => {
     } else {
       alert("Please accept the Terms and Conditions before proceeding.");
     }
+    navigate('/')
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif", gridColumn:'1/13' }}>
       <h1>Terms and Conditions</h1>
       <p>
         Welcome to Moropane Luxury Hotel's website. By accessing this website, you agree to comply with and be bound by the following terms and conditions:
@@ -53,9 +55,9 @@ const TermsAndConditions = () => {
       <p>
         For questions about these Terms and Conditions, please contact us at:
         <br />
-        Email: support@moropaneluxuryhotel.com
+        Email: kimoropana823@gmail.com
         <br />
-        Phone: +1 234 567 890
+        Phone: +27 76 869 9754
       </p>
 
       <form onSubmit={handleSubmit}>
@@ -65,7 +67,7 @@ const TermsAndConditions = () => {
             checked={accepted}
             onChange={handleCheckboxChange}
           />
-          I accept the Terms and Conditions
+          I accept <Link to={'/policy'} target='_blank' style={{textDecoration:'underline'}}>the Terms and Conditions</Link>
         </label>
         <br />
         <button type="submit" disabled={!accepted}>

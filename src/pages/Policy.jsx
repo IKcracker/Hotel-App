@@ -1,6 +1,7 @@
 function Policy() {
     return ( 
     <div className="policy-container container">
+    
       <h1>Moropane Luxury Hotel Privacy & Usage Policy</h1>
 
       <h2>1. Introduction</h2>

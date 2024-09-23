@@ -16,6 +16,7 @@ import About_room from './pages/About_room'
 import TermsAndConditions from './pages/Terms'
 import Policy from './pages/Policy'
 import { useDispatch, useSelector } from 'react-redux'
+import Contact from './pages/Contact'
 function App() {
   const [path , setPath] = useState(null)
   const dispatch = useDispatch()
@@ -45,7 +46,7 @@ function App() {
         <Route path={`/rooms/${path?.id}`} element={<About_room room={path}/>}/>
         <Route path='/terms' element={<TermsAndConditions/>}/>
         <Route path='/policy' element={<Policy/>}/>
-
+        <Route path='/contact' element={<Contact/>}/>
         <Route element={<Protected/>}>    
         <Route path='/account' element={<Account setPath={setPath}/>}/>
         <Route path='/booking' element={<Cart/>}/>

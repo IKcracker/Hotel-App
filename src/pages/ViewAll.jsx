@@ -10,6 +10,7 @@ import Filter from "../Components/filter";
 import Pagination from "../Components/pagination"; 
 import Spinner from "../Components/spinner";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import { Auth } from "../Firebase/config";
 
 function ViewAll({ setPath }) {
     const [rooms, setRooms] = useState([]); 
@@ -42,7 +43,7 @@ function ViewAll({ setPath }) {
 
     const handleRating = (e, room) => {
         e.preventDefault();
-        room.rating.push({ reviewText, rate });
+        room.rating.push({ reviewText, rate ,user:Auth.currentUser.email});
         const res = dispatch(updateRoom(room));
          console.log(res)
         setRate(null);

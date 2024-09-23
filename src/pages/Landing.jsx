@@ -99,7 +99,7 @@ function Landing() {
                             <option value="cart" onClick={() => navigate('/booking')}>Cart</option>
                         </select>
                         <li onClick={() => navigate('/rooms')}><a>Rooms</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
                         {(isLogged || isActive) ? (
                             <button className="btn" onClick={handleLogout}>
                                 Log out
