@@ -14,11 +14,11 @@ function Cart() {
   const [zoom, setZoom] = useState(null);
   const [room , setRoom ] = useState(data)
   const [filter, setFilter] = useState({
-    checkIn: room.checkIn,
-    checkOut: room.checkOut,
-    adult: room.adult,
-    children: room.children,
-    type: room.type,
+    checkIn: room?.checkIn,
+    checkOut: room?.checkOut,
+    adult: room?.adult,
+    children: room?.children,
+    type: room?.type,
   });
   const [confirm, setConfirm] = useState(false);
   const dispatch = useDispatch();

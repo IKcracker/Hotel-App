@@ -47,7 +47,7 @@ function App() {
         <Route path='/policy' element={<Policy/>}/>
 
         <Route element={<Protected/>}>    
-        <Route path='/account' element={<Account/>}/>
+        <Route path='/account' element={<Account setPath={setPath}/>}/>
         <Route path='/booking' element={<Cart/>}/>
         </Route>
         

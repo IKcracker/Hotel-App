@@ -44,7 +44,7 @@ function ViewAll({ setPath }) {
         e.preventDefault();
         room.rating.push({ reviewText, rate });
         const res = dispatch(updateRoom(room));
-      
+         console.log(res)
         setRate(null);
         setReviewText("");
         setCurrentRoom(null);
@@ -165,7 +165,7 @@ function ViewAll({ setPath }) {
                                                             value={reviewText}
                                                             onChange={(e) => setReviewText(e.target.value)}
                                                         />
-                                                        <button type="submit" disabled={room.status !== 'available'}>Submit</button>
+                                                        <button type="submit">Submit</button>
                                                     </form>
                                                 )}
                                             </div>

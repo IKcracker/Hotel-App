@@ -1,10 +1,10 @@
-import { collection,addDoc, getDocs , deleteDoc,updateDoc, doc, getDoc} from "firebase/firestore";
-import { db } from "../Firebase/config";
+import { collection,addDoc, getDocs , deleteDoc,updateDoc, doc, getDoc, query, where} from "firebase/firestore";
+import { Auth, db } from "../Firebase/config";
 import { toast } from "react-toastify";
 
 
 
-export const addBookings = async(data)=>{
+export const addBooking = async(data)=>{
 
     const ref = collection(db ,'/booking')
  
@@ -20,7 +20,7 @@ export const addBookings = async(data)=>{
 }
 
 
-export const getBookings =async (type)=>{
+export const getBooking =async (type)=>{
     const ref = collection(db ,type)
 
     try{
@@ -36,7 +36,7 @@ export const getBookings =async (type)=>{
         toast(error.message)
     }
 }
-export const deleteBookings = async (id , category)=>{
+export const deleteBooking = async (id , category)=>{
     try{
         
         deleteDoc(doc(db,`/${category}` , id))
@@ -47,14 +47,14 @@ export const deleteBookings = async (id , category)=>{
     }
      
 }
-export const updateBookings = async (id , category ,data)=>{
+export const updateBooking = async (id , category ,data)=>{
    try {
        await updateDoc(doc(db ,`${category}` , id),data)
    } catch (error) {
     toast(error.message)
    }
 }
-export const get = async (category , id)=>{
+export const getMyBooked = async (category , id)=>{
     try{
         const res = await getDoc(doc(db,`/booking` , id))
         return res.data()
@@ -64,4 +64,10 @@ export const get = async (category , id)=>{
         toast(error.message)
     }
     
+}
+export const getAll =async() =>{
+    const citiesRef = collection(db, "booking");
+    const q = query(citiesRef, where("uid", "==", Auth.currentUser.uid));
+    const res = await getDocs(q)
+    return res.docs
 }

@@ -4,6 +4,8 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { updateRoom } from "../Redux/roomSlice";
 import { getRoom } from "../Database/rooms";
+import { Auth } from "../Firebase/config";
+import { createBookings } from "../Redux/bookingSlide";
 
 function Message({ content }) {
     return <p>{content}</p>;
@@ -56,6 +58,12 @@ function PaypalCheckoutButton({ product }) {
         toast(`Transaction completed by ${res.payer.name.given_name}`); 
         const updated = { ...room, status: 'booked' };
         dispatch(updateRoom(updated));
+        const user = Auth.currentUser;
+        const {uid , email} = user
+        
+        const newBooking = {...updated , email , uid}
+        console.log(newBooking)
+        dispatch(createBookings(newBooking))
         setPaidFor(true);
     };
 

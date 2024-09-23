@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { IoLocationSharp } from "react-icons/io5";
 import { MdEmail, MdFastfood, MdNetworkWifi3Bar, MdOutlineArrowForward, MdOutlineStarPurple500, MdSecurity } from "react-icons/md";
 import { FaPersonSwimming } from "react-icons/fa6";
+import { Auth } from "../Firebase/config";
 
 function Landing() {
     const [bg, setBg] = useState('/src/imgs/bg1.jpg'); 
@@ -46,7 +47,7 @@ function Landing() {
         navigate('/login');
     };
 
- 
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFilter(prevFilter => ({ ...prevFilter, [name]: value }));
