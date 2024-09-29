@@ -49,8 +49,7 @@ function AboutRoom({ room = {} }) {
                                         onChange={rate?.rate}
                                         edit={false}
                                         value={(
-                                        room?.rating.reduce((total, current) => total + (current?.rate || 0), 0) / room.rating.length
-                                        ).toFixed(1) || 0}
+                                        room?.rating.reduce((total, current) => total + (current?.rate || 0), 0) / room.rating.length).toFixed(1) || 0}
                                           size={28}
                                          isHalf={true}
                                         emptyIcon={<i className="far fa-star"></i>}

@@ -28,9 +28,9 @@ function Account({setPath}) {
             <p>Update your Password <span onClick={()=>setUpdate(true)}>Click here</span></p>
             {update && <ResetPassword setResetPassword={setUpdate} resetPassword={update}/>}
             <div>
-            <h4>Bookins</h4>
+            <h4>Bookings</h4>
             {bookings.map((book , index) =>{ 
-               return book.uid ==Auth.currentUser.uid && <p onClick={()=> {setPath(book) ; navigate(`/rooms/${book?.id}`)}}> click to view - Room {Number(index) + 1}</p>
+               return book.uid ==Auth.currentUser.uid && <p onClick={()=> {setPath(book) ; navigate(`/rooms/${book?.id}`)}}> <button>click to view</button> - Room {Number(index) + 1}</p>
                })}
                
             <div>

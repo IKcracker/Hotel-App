@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PaypalCheckoutButton from "../Components/paypalCheckoutButton";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { MdOutlineArrowForward } from "react-icons/md";
 import { updateRoom } from "../Redux/roomSlice";
@@ -22,6 +22,7 @@ function Cart() {
   });
   const [confirm, setConfirm] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   useEffect(() => {
     room?.img?.length > 0 && setZoom(room?.img[0]);
@@ -153,8 +154,9 @@ function Cart() {
     </div>
     
   ) : (
-    <div>
+    <div className="container container-flex">
       <h1>You haven't selected any room</h1>
+      <button onClick={()=> navigate('/rooms')}>Go to rooms</button>
     </div>
   );
 }
